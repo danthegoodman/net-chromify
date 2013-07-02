@@ -29,8 +29,8 @@ var stringToArrayBuffer = function(str) {
   return buffer;
 };
 
-var bufferToArrayBuffer = function(buffer) {
-  return stringToArrayBuffer(buf.toString())
+var bufferToArrayBuffer = function(buf, encoding) {
+  return stringToArrayBuffer(buf.toString(encoding))
 };
 
 var arrayBufferToBuffer = function(arrayBuffer) {
@@ -327,7 +327,7 @@ net.Socket.prototype.write = function(data, encoding, callback) {
     buffer = stringToArrayBuffer(data);
   }
   else if(data instanceof Buffer) {
-    buffer = bufferToArrayBuffer(data);
+    buffer = bufferToArrayBuffer(data, encoding);
   }
   else {
     // throw an error because we can't do anything.
