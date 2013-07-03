@@ -358,7 +358,7 @@ net.Socket.prototype.unref = function() {};
 net.Socket.prototype.pause = function() {};
 net.Socket.prototype.resume = function() {};
 net.Socket.prototype.end = function() {
-
+  this.emit('end');
 };
 
 
